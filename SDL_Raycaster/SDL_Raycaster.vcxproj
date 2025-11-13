@@ -139,11 +139,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Map.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Raycast.cpp" />
     <ClCompile Include="SGE_Core.cpp" />
     <ClCompile Include="SGE_Draw.cpp" />
     <ClCompile Include="SGE_FontData.cpp" />
@@ -154,15 +151,16 @@
     <ClCompile Include="SGE_Timer.cpp" />
     <ClCompile Include="SGE_Utilities.cpp" />
     <ClCompile Include="SGE_Window.cpp" />
-    <ClCompile Include="Textures.cpp" />
-    <ClCompile Include="upng.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constants.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="Map.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="Raycast.h" />
+    <ClInclude Include="RC_Block.h" />
+    <ClInclude Include="RC_Map.h" />
+    <ClInclude Include="RC_MapLayout.h" />
+    <ClInclude Include="RC_Misc.h" />
+    <ClInclude Include="RC_Object.h" />
     <ClInclude Include="SGE_Core.h" />
     <ClInclude Include="SGE_Draw.h" />
     <ClInclude Include="SGE_FontData.h" />
@@ -174,8 +172,7 @@
     <ClInclude Include="SGE_Utilities.h" />
     <ClInclude Include="SGE_vector_types.h" />
     <ClInclude Include="SGE_Window.h" />
-    <ClInclude Include="Textures.h" />
-    <ClInclude Include="upng.h" />
+    <ClInclude Include="RC_Sprite_Layout.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

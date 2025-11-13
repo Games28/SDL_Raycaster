@@ -172,19 +172,19 @@ void flc::Sprite::SetPixel( int x, int y, flc::Pixel pix ) {
 
 // samples the sprite at normalized coordinates (u, v) (which must be in [0.0f, 1.0f])
 flc::Pixel flc::Sprite::Sample( float u, float v ) {
-    //flc::Pixel result;
+    flc::Pixel result;
     if (u < 0.0f || u > 1.0f ||
         v < 0.0f || v > 1.0f)
         return flc::MAGENTA;
     else {
-      int tmp_x = std::min( (int)round( u * (float)width  ), width  - 1 );       
-      int tmp_y = std::min( (int)round( v * (float)height ), height - 1 );
-       // int tmp_x = std::max( 0, std::min( (int)( u * (float)width  ), width  - 1 ));
-        //int tmp_y = std::max( 0, std::min( (int)( v * (float)height ), height - 1 ));
+     // int tmp_x = std::min( (int)round( u * (float)width  ), width  - 1 );       
+      //int tmp_y = std::min( (int)round( v * (float)height ), height - 1 );
+        int tmp_x = std::max( 0, std::min( (int)( u * (float)width  ), width  - 1 ));
+        int tmp_y = std::max( 0, std::min( (int)( v * (float)height ), height - 1 ));
         return GetPixel( tmp_x, tmp_y );
     }
 
-    //return result;
+    return result;
 }
 
 // returns true if the sprite has no valid surface
@@ -255,6 +255,7 @@ flc::Decal::Decal( flc::Sprite *spritePtr, bool bFilter, bool bClamp ) {
             std::cout << "ERROR: Decal() --> failure in SDL_CreateTextureFromSurface(): " << SDL_GetError() << std::endl;
         }
     }
+    Update();
 }
 
 // NOTE: the associated sprite is not disposed by this destructor
@@ -737,3 +738,52 @@ void flc::SpriteFont::DrawStringPropDecal( int x, int y,
 //                                                                           //
 // ------------------------------------------------------------------------- //
 //                                                                           //
+
+
+
+
+void flc::Renderable::Clean()
+{
+    pSprite = nullptr;
+    pDecal = nullptr;
+}
+
+bool flc::Renderable::Load(const std::string& sFile, bool filter, bool clamp )
+{
+    auto file_path_check = [=](const std::string& sFileName) {
+        bool noerror = true;
+        flc::Sprite* tmp = new flc::Sprite(sFileName);
+        if (tmp->width == 0 || tmp->height == 0) {
+            std::cout << "ERROR: OnUserCreate() --> can't load file: " << sFileName << std::endl;
+            delete tmp;
+            tmp = nullptr;
+            return false;
+        }
+        return noerror;
+        };
+
+    if (!file_path_check(sFile)) return false;
+    
+   pSprite = new flc::Sprite(sFile);
+   pDecal = new flc::Decal(pSprite, filter, clamp);
+    
+    
+    
+   
+
+    return true;
+}
+
+void flc::Renderable::Create(uint32_t width, uint32_t height, bool filter, bool clamp)
+{
+}
+
+flc::Decal* flc::Renderable::Decal() const
+{
+    return pDecal;
+}
+
+flc::Sprite* flc::Renderable::Sprite() const
+{
+    return pSprite;
+}

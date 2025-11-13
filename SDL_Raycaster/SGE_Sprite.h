@@ -122,6 +122,26 @@ namespace flc {
         SDL_Texture *m_decal  = nullptr;
     };
 
+    //Renderable class to keep sprites and decals together
+
+    class Renderable
+    {
+    public:
+        Renderable() = default;
+        void Clean();
+        bool Load(const std::string& sFile, bool filter = false, bool clamp = true);
+        void Create(uint32_t width, uint32_t height, bool filter = false, bool clamp = true);
+        flc::Decal* Decal() const;
+        flc::Sprite* Sprite() const;
+
+
+    private:
+       flc::Sprite* pSprite = nullptr;
+        flc::Decal* pDecal = nullptr;
+    };
+
+
+
 //                           +------------------+                            //
 // --------------------------+ CLASS DEFINITION +--------------------------- //
 //                           +------------------+                            //

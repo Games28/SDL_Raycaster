@@ -21,9 +21,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>engine</Filter>
-    </ClCompile>
     <ClCompile Include="SGE_Core.cpp">
       <Filter>engine</Filter>
     </ClCompile>
@@ -54,30 +51,12 @@
     <ClCompile Include="SGE_Window.cpp">
       <Filter>engine</Filter>
     </ClCompile>
-    <ClCompile Include="Textures.cpp">
-      <Filter>engine</Filter>
-    </ClCompile>
-    <ClCompile Include="upng.cpp">
-      <Filter>engine</Filter>
-    </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Map.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Raycast.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constants.h">
-      <Filter>engine</Filter>
-    </ClInclude>
-    <ClInclude Include="upng.h">
-      <Filter>engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Textures.h">
       <Filter>engine</Filter>
     </ClInclude>
     <ClInclude Include="SGE_Window.h">
@@ -119,10 +98,22 @@
     <ClInclude Include="Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Map.h">
+    <ClInclude Include="RC_Map.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Raycast.h">
+    <ClInclude Include="RC_MapLayout.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RC_Object.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RC_Misc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RC_Sprite_Layout.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RC_Block.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -6,6 +6,8 @@ Player::Player()
 	fPlayerY = 2.0f;
 	fPlayerA_deg = 0.0f;
 	fPlayerH = 0.5f;
+	fLookUp = 0.0f;
+	
 
 }
 
@@ -47,3 +49,19 @@ float Player::getPlayerH()
 {
 	return fPlayerH;
 }
+
+void Player::setPlayerH(float set)
+{
+	fPlayerH = set;
+}
+
+float Player::getLookUp()
+{
+	return fLookUp;
+}
+
+void Player::setLookUp(float set)
+{
+	fLookUp = set;
+}
+
